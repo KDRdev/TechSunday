@@ -7,11 +7,14 @@ define('DB_USER', 'root');
 define('DB_PASS', '12345678');
 define('DB_NAME', 'TechSunday');
 
-// application root
+// Application root
 define('APPROOT', dirname(dirname(__FILE__)));
 
-// url root
+// URL root
 define('URLROOT', 'http://localhost/TechSunday/');
 
-// site name
+// Pub root
+define('PUBROOT', URLROOT . 'pub/');
+
+// Site name
 define('SITENAME', 'TechSunday');

@@ -5,6 +5,9 @@ class Pages extends Controller{
 
   }
   public function index(){
-    $this->view('pages/index', ['title' => 'TechSunday']);
+    $data = [
+      'title' => 'TechSunday'
+    ];
+    $this->view('pages/index', $data);
   }
 }

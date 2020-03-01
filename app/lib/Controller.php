@@ -1,20 +1,21 @@
 <?php
 
-// core controller class
-// loads views and models
+// Core controller class
+// Loads views and models
 
 class Controller{
 
-  // load model
+  // Load model
   public function model($model){
-    require_once '../app/models/' . $model . '.php';
+    require_once APPROOT . '/models/' . $model . '.php';
     return new $model();
   }
 
-  //load view
+  // Load view
   public function view($view, $data = []){
-    if(file_exists('../app/views/' . $view . '.php')){
-      require_once '../app/views/' . $view . '.php';
+    $view_file = APPROOT . '/views/' . $view . '.php';
+    if(file_exists($view_file)){
+      require_once $view_file;
     } else {
       echo 'View does not exist';
     }
