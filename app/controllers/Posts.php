@@ -51,7 +51,23 @@ class Posts extends Controller{
   }
 
   public function show($id){
-    $data = [];
+    $post = $this->postModel->getPostById($id);
+    $data = [
+      'post' => $post
+    ];
     $this->view('posts/show', $data);
+  }
+
+  public function delete($id){
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      if ($this->postModel->deletePost($id)){
+        flash('post_message', 'Deleted!');
+        redirect('posts');
+      } else {
+        die('Oops. Something went wrong');
+      }
+    } else {
+      redirect('posts');
+    }
   }
 }

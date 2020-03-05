@@ -1,12 +1,15 @@
 <?php require APPROOT . '/views/inc/header.phtml'; ?>
-<?php flash('post_message'); ?>
-<?php foreach ($data['posts'] as $post) : ?>
-<div class="row post-wrapper">
-  <a href="<?php echo $post->url; ?>">
-    <img class="post-thumbnail" src="" alt="">
-    <h2><?php echo $post->title; ?></h2>
-    <span>3 min read</span>
-  </a>
+<div class="container">
+  <?php flash('post_message'); ?>
+  <?php foreach ($data['posts'] as $post) : ?>
+  <div class="row post-wrapper">
+    <div class="col-12">
+      <img class="post-thumbnail" src="" alt="">
+      <a href="posts/show/<?php echo $post->postId; ?>">
+        <h2><?php echo $post->title; ?></h2>
+      </a>
+    </div>
+  </div>
+  <?php endforeach; ?>
 </div>
-<?php endforeach; ?>
 <?php require APPROOT . '/views/inc/footer.phtml'; ?>
