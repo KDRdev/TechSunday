@@ -50,6 +50,43 @@ class Posts extends Controller{
     }
   }
 
+  public function edit($id){
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+      $data = [
+        'id' => $id,
+        'title' => trim($_POST['title']),
+        'body' => trim($_POST['body']),
+        'title_err' => '',
+        'body_err' => ''
+      ];
+      if(empty($data['title'])){
+        $data['title_err'] = 'Cannot be empty';
+      }
+      if(empty($data['body'])){
+        $data['body_err'] = 'Cannot be empty';
+      }
+      if(empty($data['title_err']) && empty($data['body_err'])){
+        if($this->postModel->editPost($data)){
+          flash('post_message', 'Edited!');
+          redirect('posts');
+        } else {
+          die('Oops. Something went wrong');
+        }
+      } else {
+        $this->view('posts/edit', $data);
+      }
+    } else {
+      $post = $this->postModel->getPostById($id);
+      $data = [
+        'id' => $id,
+        'title' => $post->title,
+        'body' => $post->body
+      ];
+      $this->view('posts/edit', $data);
+    }
+  }
+
   public function show($id){
     $post = $this->postModel->getPostById($id);
     $data = [
