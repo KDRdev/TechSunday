@@ -3,7 +3,7 @@
     <div class="col-md-6 mx-auto">
       <div class="p-3">
         <h2 class="text-center">Create user account</h2>
-        <form class="" action="<?php echo URLROOT; ?>users/register" method="post">
+        <form class="" action="<?php echo URLROOT; ?>/users/register" method="post">
           <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" name="name" class="form-control form-control-lg <?php echo (!empty($data['name_error'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['name']; ?>">
@@ -29,7 +29,7 @@
               <input type="submit" value="Register" class="btn btn-success btn-block">
             </div>
             <div class="col">
-              <a href="<?php echo URLROOT; ?>users/login" class="btn btn-light btn-block">Have an account? Log in</a>
+              <a href="<?php echo URLROOT; ?>/users/login" class="btn btn-light btn-block">Have an account? Log in</a>
             </div>
           </div>
         </form>

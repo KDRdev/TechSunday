@@ -11,10 +11,10 @@ define('DB_NAME', 'TechSunday');
 define('APPROOT', dirname(dirname(__FILE__)));
 
 // URL root
-define('URLROOT', 'http://localhost/TechSunday/');
+define('URLROOT', 'http://localhost/TechSunday');
 
 // Pub root
-define('PUBROOT', URLROOT . 'pub/');
+define('PUBROOT', URLROOT . '/pub/');
 
 // Site name
 define('SITENAME', 'TechSunday');

@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-12">
     <h1>Edit post</h1>
-      <form action="<?php echo URLROOT; ?>posts/edit/<?php echo $data['id']; ?>" method="post">
+      <form action="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['id']; ?>" method="post">
         <div class="form-group">
           <label for="title">Title</label>
           <input type="text" name="title" class="form-control form-control-lg<?php echo (!empty($data['title_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['title']; ?>">
